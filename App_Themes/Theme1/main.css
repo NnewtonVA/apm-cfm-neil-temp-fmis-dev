@@ -1,0 +1,219 @@
+﻿
+body {
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size:12px;
+	background-color:#e6ecff;
+	margin:0px;
+	padding:0px;
+}
+
+.btn { background: #5D7B9D; color: White; text-decoration: none; cursor: pointer; }
+.btnbig { background: #DAB794; color: #000000; text-decoration: none; cursor: pointer; width:200px;}
+
+.mainHeader { height:65px; background-image:url(../../images/VALogo1.png); background-position:left; 
+              background-repeat:no-repeat; margin-left:auto; margin-right:auto; background-color:#dadce3;width:100%; }
+
+.adminHeader { width:1100px; height:107px; background-image:url(../../../images/VALogo.png); background-position:center; background-repeat:no-repeat; margin-left:auto; margin-right:auto; }
+
+.mainMenu { width:98%; height:98%; text-align:left; padding:5px; margin-left:auto; margin-right:auto; background-color:#b3ccff; }
+
+.subMenu
+{width:100%; background-color:#f9fafc; 
+  text-align:center; 
+  padding-top:1px; 
+  /*font:500 15px ;
+  height:15px;*/
+  margin-left:auto; margin-right:auto;
+}
+.mainContent { width:100%; height:100%; overflow:auto;  padding:10px; margin-left: auto; margin-right: auto; background-color: #F3F4F6; }
+/*.mainContent .ajax__tab_xp .ajax__tab_header .ajax__tab_inner
+        {
+              border:solid 1px #F0F0F0;
+            color:#191970;
+            padding: 0px 0px 5px 0px;
+              background-color: #F3F4F6;
+              border-style:outset;
+               margin-bottom:10px;
+                 background-image:none;
+        }*/
+/*.mainContent .ajax__tab_xp .ajax__tab_body
+        {
+            font-family: verdana,tahoma,helvetica;
+            font-size: 10pt;
+            background-color: #F3F4F6;
+            border-top-width: 0;
+            padding-top:10px;
+            border: solid 1px #d7d7d7;
+            border-top-color: #ffffff;
+             min-width:700px;
+        }*/
+.dropdown{width:320px;}
+.label
+{
+width: 12em;
+text-align: right;
+margin-right: 0.5em;
+float:left;
+display:block;
+}
+.col
+{
+padding-left:15px;
+}
+.modalPopup
+{
+      border-width:3px;
+      border-style:solid;
+      border-color:Gray;
+      padding:2px;
+}
+.ModalPopupBG
+{
+    background-color: Gray;
+    filter: alpha(opacity=50);
+    opacity: 0.7;
+}
+.Modaltable
+{
+    border: 1px solid black;
+} 
+.LabelName
+{
+    font-size:small;
+    font-weight: bold;
+    color:#0364B4
+}
+.LabelDes
+{
+   font-size:x-small; 
+}
+.buttonClass
+ {
+     padding: 2px 20px;
+     text-decoration: none;
+     text-align: center;
+     border: solid 1px black;
+     background-color: #eae6e6;
+
+}
+.buttonClass:hover
+ {
+    border: solid 1px Black;
+    background-color: #ffffff;
+ }
+/*#mainBox {background: #fff; border: 0; width: 780px; float:left; display:block;	}
+#mainBox h2 {
+	display:block;	
+	margin:0; padding:8px 0 0 5px;	
+	color: #4d4d62;	
+	text-transform:uppercase;
+	font-size: 115%;
+	}
+
+#mainBox h2 span {
+	display:block; float:left; padding: 0 10px 3px 0; margin: 0 .3em 0 0;	
+	background: #fff url(../images/title_divider.gif) right 0 no-repeat;
+	}	
+
+#mainBox h2 a {	
+	display:block; float:left; padding: 0 10px 0 0; margin: 0 .3em 0 0;	
+	background: #fff url(../images/title_divider.gif) right 0 no-repeat;	
+	}
+
+#mainBox h3 {
+	margin:0 0 5px 0; padding:0 0 0 5px;	
+	color: #4d4d62;	
+	text-transform:uppercase;
+	font-size: 115%;
+	}	
+
+#mainBox .clear {	
+	clear:both;
+	float:none;
+	}*/	
+div.wideBox {	
+	margin: 5px 0 5px 5px;
+	padding: 2px 0 2px 0;
+	width: 98%;	
+	background: #fff url(../images/mainContent-box-bg.jpg) 0 0 repeat-x; /*possibly remove or update*/	
+	border: 1px solid #ddddee;
+	}
+.Image {
+          width:375px;
+          margin:0px auto;
+          text-align:center;
+          padding:20px;
+          border:1px dashed gray;
+          background-color:Silver;
+      }	
+.submitBtn {
+    width: 120px;
+    font-weight:bold;
+	}	
+.saveButton
+{
+    width: 160px;
+    font-weight:bold;
+	}	
+.Watermark
+{
+	color:Gray;
+}
+.HowTo
+{
+	background-color:#FAFAD2;
+}
+.gvPadding
+{
+    padding-left:5px;
+    padding-right:3px;
+}
+.txtPadding
+{
+    padding-left:5px;
+}
+.ImgButton {
+  display: inline-block;
+  padding: 5px 5px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  background-color: #f2f4f9;
+  border-radius: 5px;
+  box-shadow: 0 5px #999;
+}
+.accordionHeader {  
+        color: white;  
+        background-color: #719DDB;  
+        font: bold 11px auto "Trebuchet MS", Verdana;  
+        font-size: 12px;  
+        cursor: pointer;  
+        padding: 4px;  
+        margin-top: 3px;  
+    }        
+    .accordionHeaderSelected {  
+        background-color: #5078B3;  
+        border: 1px solid #2F4F4F;  
+        color: white;  
+        cursor: pointer;  
+        font-family: Arial, Sans-Serif;  
+        font-size: 12px;  
+        font-weight: bold;  
+        margin-top: 5px;  
+        padding: 5px;  
+        width: 100%;  
+    }        
+    .accordionContent {  
+        background-color: #DCE4F9;  
+        font: normal 12px auto Verdana, Arial;  
+        border: 1px gray;  
+        padding: 4px;  
+        padding-top: 7px;  
+    }  
+    .roundBtn {
+        padding:2px;
+        border-radius:5px;
+    }

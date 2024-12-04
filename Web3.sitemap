@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Default.aspx" title="Home"  description="">
+    <siteMapNode title="Search" roles="*" description="Search for project or factsheet">
+      <siteMapNode url="~/SearchProject.aspx" title="Project Information"  description="Search for Projects" />
+    </siteMapNode>
+    <siteMapNode title="Environmental" roles="*" description="View Environmental Questionnaire">
+      <siteMapNode url="~/QuestionnaireForInitialResponseList.aspx" title="Project for Initial Response List"  description="Project for Initial Response List" />
+    </siteMapNode>
+
+    <siteMapNode title="User Manual" url="javascript:GoTo('http://cfm.vaco.va.gov/UserManual/QuickReferenceGuideForNewCFMIS.pdf')" roles="*" description="View User Manual">
+
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>
+
+

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <!--This site map has admin menu-->
+  
+    <siteMapNode url="~/Default.aspx" title="Home"  description="">
+      <siteMapNode title="Administration" roles="*" description="Only for administrator" >
+        <siteMapNode url="~/Admin/UserInfo.aspx" title="User Information"  description="Add or update user information" />
+        <siteMapNode url="~/Admin/StationInfo.aspx" title="Search Station"  description="Search and update station information" />
+        <siteMapNode url="~/Admin/StationAdd.aspx" title="Add Station"  description="Add station information" />
+        <siteMapNode url="~/Admin/MaintainLookup.aspx" title="Maintain Lookup Lists"  description="Maintain Lookup Lists" />
+      </siteMapNode>
+      <siteMapNode url="~/AddProject.aspx" title="Add Project"  description="Add New Projects" />
+      <siteMapNode title="Search" roles="*" description="Search for project or factsheet">
+        <siteMapNode url="~/SearchProject.aspx" title="Project Information"  description="Search for Projects" />
+        <!--<siteMapNode url="~/SearchFactsheetReviews.aspx" title="FactSheet"  description="Search Projects for reviewing Factsheet" />-->
+      </siteMapNode>
+      <!--<siteMapNode url="~/MapProject.aspx" title="Map"  description="Map" />-->
+      <siteMapNode title="Reports" roles="*" description="View factsheet reports">
+        <siteMapNode url="~/SubmittedReviewList.aspx" title="Submitted Review List"  description="Projects Submitted for Review" />
+        <siteMapNode url="~/PendingReviews.aspx" title="Pending Review List"  description="Projects Pending for Review" />
+        <siteMapNode url="~/ReportViewer.aspx?report=FactSheetreportPublic" title="View Archived FactSheet"  description="Search factsheet that has been published" />
+        <siteMapNode url="~/ReportList.aspx?" title="View Active Reports"  description="View the report with Active project" />
+        <siteMapNode url="~/ReportViewer.aspx?report=LastProjectUpdateReport" title="View Last Project Update Report" description="View the report with Last Project Update" />
+      </siteMapNode>
+      <siteMapNode title="Environmental" roles="*" description="Environmental">
+        <siteMapNode url="~/UnassignedSubmittedQuestionnaireList.aspx" title="Unassigned Project List"  description="Unassigned Project List" />
+        <siteMapNode url="~/QuestionnaireForInitialResponseList.aspx" title="Project for Initial Response List"  description="Project for Initial Response List" />
+        <siteMapNode url="~/EnvironmentalStaffSMEList.aspx" title="Environmental Staff SME List"  description="Environmental Staff SME List" />
+        <siteMapNode url="~/EnvironmentalReport.aspx?" title="View Environmental Report"  description="Environmental Report" />
+      </siteMapNode>
+		<siteMapNode title="Sustainability" roles="*" description="Sustainability">
+			<siteMapNode url="~/SustainabilityReport.aspx?" title="View Sustainability Report"  description="Sustainability Report" />
+		</siteMapNode>
+
+		<siteMapNode title="User Manual" url="javascript:GoTo('http://cfm.vaco.va.gov/UserManual/QuickReferenceGuideForNewCFMIS.pdf')"  roles="*" description="View User Manual">
+
+      </siteMapNode>
+      </siteMapNode>
+</siteMap>

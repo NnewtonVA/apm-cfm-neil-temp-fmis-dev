@@ -1,0 +1,346 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head>
+    <title>
+        Review List
+    </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7" />
+    <link href="App_Themes/Theme1/main.css" rel="stylesheet" />
+
+
+
+    <script type="text/javascript" src="Content/js/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="Content/js/select2.js"></script>
+    <link href="Content/css/select2.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="Content/js/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="Content/css/sweetalert.css" />
+
+    <script type="text/javascript">
+       function SaveAlertMsg(msg) {
+         swal("", msg, "success");
+       }
+       function ErrorAlertMsg(msg) {
+         swal("", msg, "error");
+       }
+
+    </script>
+
+
+
+    <script type="text/javascript">
+
+        function SetTarget() {
+            document.forms[0].target = "_blank";
+        }
+    </script>
+
+
+    <style type="text/css">
+        .auto-style1 {
+            width: 107px;
+        }
+    </style>
+
+    <link href="App_Themes/Theme1/main.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+        /* <![CDATA[ */
+        #MainContent_UCMenuAdmin_mFactsheet {
+            height: 400px;
+        }
+
+            #MainContent_UCMenuAdmin_mFactsheet img.icon {
+                border-style: none;
+                vertical-align: middle;
+            }
+
+            #MainContent_UCMenuAdmin_mFactsheet img.separator {
+                border-style: none;
+                display: block;
+            }
+
+            #MainContent_UCMenuAdmin_mFactsheet ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                width: auto;
+            }
+
+                #MainContent_UCMenuAdmin_mFactsheet ul.dynamic {
+                    z-index: 1;
+                }
+
+            #MainContent_UCMenuAdmin_mFactsheet a {
+                text-decoration: none;
+                white-space: nowrap;
+                display: block;
+            }
+
+                #MainContent_UCMenuAdmin_mFactsheet a.popout {
+                    background-image: url("/CFM_CFMIS/WebResource.axd?d=ooQ0U1hVRwf8VQgScr8BfWFLtIo0-PaxIpfKZijssP355hMzCELMZ4LvTvoESdcBwJ2Tu3RsPQOaxQofljF4ApdLEeG9YyP27aQ7CEeZNqw1&t=637453888939909757");
+                    background-repeat: no-repeat;
+                    background-position: right center;
+                    padding-right: 14px;
+                }
+
+                #MainContent_UCMenuAdmin_mFactsheet a.level1 {
+                    padding: 5px 0px 5px 0px;
+                    font-size: 18px;
+                    font-weight: bold;
+                    text-decoration: none;
+                }
+
+                #MainContent_UCMenuAdmin_mFactsheet a.level2 {
+                    padding: 3px 0px 3px 0px;
+                    color: #00287D;
+                    font-size: 16px;
+                    font-weight: bold;
+                    text-decoration: none;
+                    padding-left: 1em;
+                }
+
+                #MainContent_UCMenuAdmin_mFactsheet a.level3 {
+                    padding: 0px 3px 0px 3px;
+                    font-size: 14px;
+                    text-decoration: none;
+                    padding-left: 2em;
+                }
+
+                #MainContent_UCMenuAdmin_mFactsheet a.level4 {
+                    padding-left: 3em;
+                }
+        /* ]]> */
+    </style>
+</head>
+<body>
+    <form method="post" action="./SubmittedReviewList.aspx" id="ctl01">
+        <div class="aspNetHidden">
+            <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+            <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+            <input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="FoUtlAQZrZ2QUH7J735J6ThULYJTyZdQT5Z5eMXhJ3t7tVQzCuEN/+UKyL6pJ5HNjn7DotsQVzezmMEXcz/x+rcRB9EY7iHIHDa+2WZ0rPjqz4S6bfJO+nQP0xFKAzRDhzHADqqEcsl/splPIZu8BxmNFCmpNSeWfTPqEa8bnP4EfNFg9t3WED/XO60mHXGqV8gcivrjLM6JU7jaB+WqYYlgadqASYmUAcHX5YKH751t5M59TfN5VmXxx6oMPHoK2wzCrl8s2vccg+HIw/4/yASdx6+W/alrVCeUEoT57GSGKPSqgUkbTotIne4RYxhmKfnBYa+Ay2BQhMqTeglmwWPO04gOrWg1QL3FTlm7jj9Y9H75BEyaFaQDOT0J2fT+deHcG+p6GX2hwELmDFfQ8beMBb53o6Y+0uB/6bw/pEeFX1c9cgCcSsaJqqpB9SGtP77SHkU/YOaxeJn2E9o8VOwtnqOws++dseg3E59KZgvbkrwicsRxaP8ZIK/jHHLLhGP+Uu5276+B8/XbsxCKAHyLVQuds84CdkYRLBA3LCTWtqiM5GBXd9iBlkS2Mqrnt51VVVoOOeKtF7/Jb3NNPcF0BN6Oqfe6bWl+Hum2y8Y4G0/WGNu9Ze66vKTP/0Jd6aHPz6fujlSaM/bvDBXuaWSoU2/RzX2fJBT4BposfjdwHgTZBmIKnggILbw+sWymdoBGWf02KhesnedXp6TknwJJsWyIenPMDvZoJ7dUGXRDyES1it9gfWkyE0CejFgZ60sNXEQHara3hM+ufCuB4pZvOn63Q7n3MdxLeTIlAUCMgD7wBd7+md1cShfn6N5WFtm50z2+Dvz65FqMtnr4hZZQGcamjdqamqr/NihimFtpX2M37dSEDQ+WxJRxf/5A4xcoVzF/URZ6j4Oh7GKt8yyYDo5+sKsNyXKOp9Y2DhStdfV87iUCtQ12cYRtBPBA4KLYLxMHHHRls5ZwNQoGlgU87BBoAwz5Ph6PciNKZdZLj9lPdjdKvl6QmKySJXwldmIJi/RoynR6DAB5Q0btnAhsueb1UVscUXGQ1mDECNuECkjHRQomuNIoB4QavE0xjJBdFsh2GceXev6AlmV5Pk05z16r/ym7X5I4LsvRXoeo1SACC+LK29QtNSquF0XL8X6gARJqfW6COUcxoWJ73sUVrGw/a4YxTHuZARI0T1byd2G3WRnC6MLwpPDl9GjmOPKQ1eP5DIFBAfHll45KOJWR+JTgCH4+ehQMP8Cx6I2qyrMbECsSbEMPD9uH/oyN+zyk8vqB5YN9zGBVf5y9JKbGyrZUJNtVHaamE0lisjw/JtEDFhxLXLPMWe+Hk0BTJd1/ezQaWpWK3TSghD8oUZO84n0145KX3GOa85Khl+R2rspXg5V3VaWt1qP0lrUUCY4rnzs6/yJYikY+sN5+FHgxZSnWbQ/3v+S5ADcoVKXFNSxbhQUtWo4xUAF3BYX8WRFtSrzLWq8HkJWES/mZ+n/rKaUhXWBjDiLWt0vanvfEBbASJ+8YqXu5YpiNTOBfWW4pMMHxTkaoMzBMG60zNoE5bS5PFU9tmuLMIb62y8C1L1PI9AtGe25KWxnyN4Sey8+tWqeW2EmMmHTgZxTzyF3Ty61YBzhXgqBUm1P2Yf3/FJr7+1uHzl5F2BnL8MSsXK2AZ3bLUllb9S/Pg4+1yJm5XQNxFop6KPevTDUaymDE4SpqdFtx5joxXkLZGnBmOhVR765pkPttc8THf/LaGfjehVmi14RVW4g3dQpq4idgJhEvAkg4C1wB8/BKy29secH2XbzbnQNH7TJWv4ppxAgP8i/gYdAUF8ED4f2EYL6OLJkX5dZa1UbsM4PQoJn00JesJUWAGKDYnlHft4vYY4xLlfIR/PWFtEzqVgvu1oO/mWD14u6aIX0DrcBKyBK/KjRGTusnf2jUJ6LcXBeDfdz448S3THtxCGWVTSfSE2g4/Vp5O3DLyTrItT8h93jl4s+QQAc7085WxWIbJ38VecVPEBwgBuFK24A12lU+9USh/3qVYLbuDmYO8abvEhAFRg8bZdp+0+ziUELQakdjy3oa/Ohr2+82+QFZE0qePYQpLMBUJAk2ut1RxfwFzEARyiGdDSpIvgjryBmMRydZdINq0rV9XecZwSrpqhdoLnt6IsABexByOcmxCkN4c7m26KR9Z17yfBc/O124hACdK+39DA3GYA5dgQONLKDsBeJVya5R3AZcZvdjzgG2XCibxaoP79DEvdh1lcgH1aPqMpjbUoSHvkXQxps0ESSOrnH3yvBfmNZpvfLH4m9DtjlSY3KgaWPyxt8BRgZSZZFWI6WLngZKc7QewSzT5a4JHRkXWFEM9dVDijQUD8pe0lNjzKXoqlBQjzwI4nj3gno4h29w0JK21Q5Zskd66QHniNm7KbDrVl8tbPzfZjVh8D166naEL1AGNR2Aig/I1MLlbgaV59Zs7VS7wG/IFl51UH6CPfyyyvvo9owA0jLSybIy6gze3+cPQDsDmzlbAPP19gmx5eSp1VpxqOCVTPhuggtE8HKq9/yhpJ8qLDX10hoTPgIaAbNAn+geBX4wDd4o2KyyDndY26rb17gUBkE1rQz5MiWK0SCznzuiYUc75aDfjPyVoljCGM5xDX7hQV1WO6zEXYVmsGihvIINlOfUemmhnQYkAksBB1UqJwLEs4uuWsx2p7xFJCQWUGK5g1pJd8vR2v6qeuQR+0WQlNePKGjWhrpgge4vaO+QVX86qQCFnlvqJieMKzMOtl96Nal6nLAmAZdNYxNzzGav9jTjsHzAdAJrq6cZ2dsblaB5n5Bscu3yG7ayaB5bkbL4F9ppp0folCDPRWw3Lda9Mvj3PThshVI2vL6Y7lgNNfIwL+azI2tEWCkBEkBPHjMy/TGGddoN0gZtKRztRDLz9A6+u0QtONFGtPw3h3D8wga7LINeAEHpbGTqWBN/UKHBcL65sQ2havzgXWKbO4mRYoXAMjAIpIRxVDlQPpniMYSMw641l6zN5J8p7Hw0aeAxIupecnlZeIHk0IKzXouWUdgUv7UqzrGMctBGsJVPmOLIrN3S5Bi9vcGyiEDT0+GksYBAmn4Ez3fSZEADARybQr+CQMlpjdpIS7iYPAHmGkssqiRVjplu9E14ptmo3uyDOHQUThCUweMsTC1pdWXHOaMcRHYOfh92czrQBlz8s5Nh4zOh4WH9bxIawhmTt4BPLyu7WRHgMvlbPSP7vy3c0wVlcUC3QDm69w/rgdDCk7sR4Uu/BroP03sMjQ9TX2iV1hrTfUBnQxVm24lyeG3JvCUxWnc6R7BMsy78IK+BW4umjkqtb1mnoiRbZyqcYmiI0y1/3Lt+aideZHEMW4X8s9BR5v0TI0Sf1yMbTR0AmbG2Ra6J7/AWI96mj7SQUWBj3Baz70jqdEPGYEWx4M8dweKUasLjbw0MQ8Eygv8qOrqDr7JQg5BhM47KkupR/yu64DxejUjl+fo1YWYbVyXOiodWUJ4xq6HHrmrHF7xpisvmQZb3VOu6fIJFswAGvI6rHUj4liBhtLBpWgxwfTew1h9Jwi0jt9FqnoHfexZyp2txOH8O62z7NTTLSect7ePEy5FfK/dnsYDpfUnYfEAGsNYXsIjEBuo//6b8rYGdpj3QGFm02AiCoOE77vFUvmAjePA95ezfnlWAnjI4h5onakd9Ub+srh7q2HRXLjhpTHuxQwwfnMYCNvIJtrGwN9UD4KuF25l+4PMTHMUFUtMAqkKJBWC3TxUIku7woTF++Ua72A+p7ibrUJrG4IAaZPf/n/Q6FW7zfIHpSnmJEzsk1cEBruMbrrxOLmVcrxgAdCRS40D6cqaBiOT3eIZf/LC5geph/+wE8as07SJc99tuF3O8Z/KBedusijcE9DwxGXTx/LVrxnGzsxdZ5yrFDXskOLsl9sGKK4n+2SEpDfAtZIUhU0ATcTHBobIMakXr3WzexcR64UhnYQvA7X0n/Tl4jMRK9X9a3p64mYuOPPDcxkrOTFOxbna1LHR+YyxonEyhdiPVHtOa8+gVYKqghKFbuQ0BH2nvCrRiF+TNAAAGJIkL+JWoOD/tGQRL9bXUYxiAQpUWtedusAzuS0vRIlIjDRFQNb43yGf4C9ekTFXXYYP3zoxnYy36NQ7QRL9rYbzytYtg8czVMeh612FJ3RqKTFBdtos48F159PgHVi6/tfwMh64hs20lZ0cUxIlLjUNHCF7sRG+oTPO/et2cxifGj8HBTwphPCsOZs6F22VQdxKZt8QtVYXW5035Y95TvPwcOk4E042sOIWiO1igziThFvvEdqvO6kxYHQVKS/Ta6vE70lF/BLAQlUzZSF3UZhZZ9XccgTtUTEk/LC9EpixekCKv4jRPzS1a5a5BUowZeATgyGn/sd6Ryn3AW96DYQxraLA+2RDW1fRn0GKQtm5o3g8sycEOP9Mhw041kWxYtjw4sBQDfDD8v2PlgZrgSaFZnK+YMm9USOZ8gDoUCGcfMbxitjVDqXcuW+bM3s1mp1+EsibK5T8N5EpXTMP/dWDFKU8KFbNr4NacWjwxK2EYBX8Dqce9JMCufNQTD09OJ7xznSEjerN2r/284erbj/Zu+isNSYgUOnfyPUAFrxIbwkh14U6JJKYEUx8WmoqVo1xOTqG9ZBiKNMQXNBLIRgPDE2Y7TK+UpsJQrf61nplteEF2fgEKJ+Y0QlrlneyekH9YDMKscKrLSgyXTK7oCbkOP3+s1cX+z6BoqSZr2YmitbzTEsch5RswB08pcnbjZik9llXZ9yTnGa3bqkIol+YvGI4Xcf1BQl9TUH3Iv+0PySehHJyShXg51lN462LM36JvEslwgl4SegQF5XdZ06Es7iTAWE8/QH+H6om0hR6xwLuKSXLFnaFCYfo0RoFr9cP+tmjX9nVedd9yBQ0AbIp/p4JVV63SiI0iKhKwXYvfIaJ7yli8TFaN85ZGmm723q25/woWJvTIQnrYkSNyEiJTtn57eS4NEZ5v9cFYkuBr9tN74fs3Ik3pi8M0jHx5H9ExRUH95M8j496kUKrUDjB0JnSUu98X8nLg9DfmGggyQEBabIIaSwbVdD5++2BUs1OLcmmMelFcUlb5gJGMDTGfzv+8sDuZL8m3vu9VsXFpmpg7NzKaUssl+sgNo02PjSxef27sDJcpDayeTw2+INABMte19PTmvOtRFq3wxVYuw+Lnyw7Ja7/t+2zZ9wBds46ojQRbrSXBYD6XhmMygf6xM7YkvHDsC2ymmOAyLvk6W1TKtpnvz544jSIYaup/1dKbvALs8dzER3Oht1iGm+No4WsiBDTYVhD8ENOsLH5TQWLL31UQKx5nz8pst0xhX8ZDmaji26mMwdvYT6YLkw1FTOJ/u27nhMlry0cnmzx7iUZaM9XFZfgNhkpgQ/WYSOBdaNC7uKCGwWZtZGJflWdIubmqNjh7iXP/c6prdL28j60eq6aUj/0Dxx9WkNiWGXUQx6BH7a/Gw/iEuLOFeDJ75YSiPF4WzM98xh6uSD0yDUqul4pJUZqH0dWFmRLrGVHYQcervSUeeJOfD2/MbyyX/LYIUEos728Vu0DtyvKmxy/WqD4v9bY5CPF0rVwziiRYYIXXqjD6Oy0Nx5Xjskdx0pCwjalDnr0JigwX4xCpIVocCgqbKGV9B00X13sPxCyZUe3MxjEQ5Y01ccYpFIEvFuowUI/6khEvuhonHOuDzJ0Kw+IW1G5jfTJD+5KrjZSzuOVwWsa62q0WuFrucDl/kEF5y+jPCUoy2BKHg6L91az1JsYT2OOcgG2oOscEMdLhT7o/b/tavvbqalKBKi0ENXPNjLzH8UOSEIvEcRm20bh3ptdIhpRNSeBOJ8fZef3tB1Gh8tmKO6dpHR8ZN9O9s7cz2J8ri05bzokTUFfqR0nUdGoWk+ubN5Dl2MwBvWiwc+/nWFkJ0eOuPZIeYXOXq1hkz62nOeOCw8tNZDvF7/Mpc/3/fnj6ad1c6P0ZWorEWsIqjEh6yG3f7O4m4L7WRN1z1rzV93AhZbkAjfNpqJM0mc8QTRmJKzOXyzrlvFSugnC/8PS3bK+7us7RxzdiQvgjO9wVDPat/+EBnOAxBhMKkoMJJ7SlJodVhhhYNB74iH65XfXOBpmUL51jII4dV/EPPjWN5aH0TLh2MvOayihPPAvqdVfAxGu02AbuBZL7jW/Y1WZqPJCYxcCyDoC6PTRfrxWVxOo0K0Kb6VbD8K7g3vZBo4qPcpSe168AJnwMaHuLN4yb2aCdqoaVKaBoH2RZIEtpe+HTicavStz08FezlFhXAnJIgth8FYIVPg9PKKRWvtyN6LjtHnSRhsZu49naZq3Jz2B4/eX2rasIqfEnxV6r/0MKnV6Zk6HlOO22b366WawFLHHTPR8qhslijmZZFQlwXVXmAlNiAwv/eXas96yF0qSpM6O2O0mKx1YouyeNE+uK+xkgw38HTr00Q872wwUNE2sA2U0boUjLr2qhMwVshBdRVAWE7aWLeF7Vw2nH+v02thfdafCMOOh2kE28cPs837rge62wVxL0kfaTKPomtZUp5VXDwIN8CWgH3fnFLpLGAbNLfmVcc9KiGuxHzsgphG1FM5eNd/aq2dfBf7SsbH/zeqlFuCTMDe6R3wEZAPdgznuAim/sL4D2VeZbkVHhayL4lAydZ9J4enIr/mvyayQqbxYA89SeMZbIDj60nX7ZJXK/q2vL4XoKKnm6t3s2WWEy/6mlVMr+rTmbcPLTkBugQGtoDp3PiXjK+J2dONsfnhzUSNvI1/dvq9F25K21beytB0cp174rp1Hwd5n4MtHdUNTUzbr7DgyPk7RwCQ1jQj8jfFt7E7QG3P50zGXausHDhmxY+X5PovDvxFMlSX4xS8XLAbB27JopbtbAEgrdvdUkPANj4j8LvjyDDvpmgyW40tqYPo+FoeXNwfwizCKOMx5AJu/FqzpOH0ZNm5jRYWSWkNH4itJMuT9lS/4D37n2pdMO2jedt8boYbjFU14wwFX0aL2jqwII8zOMV8Xj/N2O2IObVvOxbv0gtf44va5C0am2MVwejX3TzHt41SZk+Ownswd/MJ4V12EX0xUwUzqS56U1MKgrdlRQzCbo//o0SEqTOxiPwCfvjUFCrjrKlZMyjmMxEo9QgIaq3PVOaicb0B8UNxyD29sWfkOp/85UYCRu3bxVKWcuypTGkgPTn0IocQepZj6sTL+TWFnoCTaPgfWknp5q6+TPGyPtGLVIV9hr4U4pF0oEP1YnOqElSiVdkelHQIf6+i2gifuY7p3FGIxDRuPEDzS2XTk530SuZfI8bPgteU+lgJf3W+lYFPgSjupsTjLQEmyLnWGZmWx+V2yhcPeI101QiItfuKmyU4x9i+1x8wn1pK+mlt3qmw3EHI8s2sxBA1xPUrDZSjndsMZWMPplY7qj2fz87KlLWejBjyRKzoPcRUyc8kvGDBCS4kTs61gxcchUombBGd4JqZUWmCLzbnDiT3AQ2wDXuLZfGBik3uzNq30ABafQZio0GSqQi0JlSGqKvjJi5EnOgWk5xkV2AkzlC/dBLEeC1FqpqydhuYbdL5DVJaN6p8s5rF5rkPNxuuWES2nRVSQBDbu5fJUPlLwcU3Vewt8zT1bPnqYkJxbFSDamSZp+ZqMGcJYgXqPmJIawMXSDMn2O6WGAbdhjsmp6jJdv0GUSkR3S6ALTim9qWgISpwuhowUv70by+HufTu33Bof30I5TwcrHDIlCH7LWPnKvU4bVESbLEi0ysVFoShwNf+6IjX2XJ/W6MKTW1P4PIei8NjfWQNtqRJBbNQ/NhcQa6BGGtUCN4WCaeWyCioWxgjtYl0W2myUkJ+kvldI0CCaIt+qOxds0ozQuBwXGRHNTi6zAeC8cEesWjQIXyI8xDuB6lbkwhddEIeJMPfeV7pCjje5/ox+mX6tgzJ9S1A9hoJ2gOizyCYvg5Dvi24DIs6GnTJMGJi5HPcQCec9xyIOsnueQTbA/8WfCGrTN0zCcOsMh4o1YseHtNlBIUAWYXnz6kpqq+Y/wz+e1CAwsp0yy9VQRIYawaKwjQ6UKTk0fy9LY5a1fcRE/9kXy0jTr1unKCeT7mBfT/caDUqtlXo5KOYG//3an73Z0/UHf1eqJ88gwrnaCDemSmZjbrt1Kl8BvVpukNIlA72hPqtLtCJFzPPcT4DtC2GKKMi8QajliXpjC8Uplt6R/BeHaDBEySK7fy5kSTl63WFoi6MH4jDDCQDE5AoZKCx8N0xDSzOxqCmRiks2xapk4kTYDuPaRzWLsfrB7OH4QFhGu057zBiYksmFdB+dYLWP5F3GhAJYzAo+pbtzi8N9oXpDmWe2LZO/kMEPMVN3f0/ripJVSS1DDonPQ3AWHa+4Z28x373BkWUk/tJhoAwEAyBYRMytnpboHnhMIqjpICmUYdedDh8OLyfkBJR3AxWN40rF2Q5WVNlhM/erNmp10LdMDAj2yTCCIb1WA7mC0r+nvZeR7yS5EU6UUQtUWP3fRgntypBSACFXfWVgg8IW9GFFq+VYfU4bKkv81XPbZ/XJLJwyLusPIvbCzF7gJySyLfyTVGHzaPrTtVkGabFxsR4tToxFShDsEH8uWOxG1YXsqU4F8QXMzp2oOV5BMeixsDzD2MJpaon81vFW/P/KibWDnaQN9f8R7e5DAQM2hPPSHUQaJ4Sgp1XGK5gtb6vp3T8RMusO+urFG4nS5+a8hOGDsGNDQaazf8G+cfXzN+tltdGloWEPM/aieSOfBKgQBvnnZxCrmIqIdotzwxPGVYZmGfYS3BreEVpmq6GQl2xW0BtFMFBg+DtRmTIaHx0ndXJfdYaAS6xwaqkuWTsob2XW1IKDNjqRb+qqUtmLUBYViKw1UvxIgdnisdh85/jykdsuoOA/vcwNMMT5RImCUdquuJmlXQheTa7B+bRjDW2tv+61/1L0o5UT8To8NWGQyqetoizQEdEuONzeMwPz7VEBb6IDIxAczE+SgRO9i1gOQGzW5mpq2mGexE8lkqeI9xkdeU2yIHuL/Z/cpXMezFoA3VLZYN6Upkx0fFJFGTxu6UahtigFb7HJALZjmA89kYYJDKFeAxaiF7pwGl83G3rK2lzB6pDXkTZPnIbroheNk7kYncD4gLULsC/EiW5qocsX/pQvABPqsUnz3DEhGzNe8gWJM0RVP5dv+cDREQvIwZNBUc1R6NY3W/hWdQx66M2kompxNEVx89jKbLKPiNLS6tvRD4he/3VzwJHVTKe0aNjThVvTDoXcL3FgvuTb2LvQB1jI59JyzuZljkJUYYooraoVsMxacC/Y1X1Jx8WiPHMZgQmMVizyZ06PSVE0uOE8dWjXAyOenZ2Zvetu5eYJqe+DMhZkaXRE8rIpCBsk+/7rKDFPdPoSEjm1cShqnAuoM78+jnic7C+JzYUSx0yyofWWG79ykHEzX2pQ7Z4InLFqzeq7bGYopA/oW6LyZLrn9mJh9Br4/Z3NQYIGr7HgF/eq182QT56LKEP3j3CkP47tGmFmU+jfNO2U+Y8FtrBUPV3277Ll8DE+8wiIu48nUsotbrXy7zPU3zrERk5LxuTPtAjlqNC1vu6G6Wu8d3dlHjSNuZRI+8X3WPQaiuNZl6OShYySH0rEKN/GdSgSSopWFgcTYsxaAqlJYFuOgjYToKyj+p3NkNxTCz6ACoY4LGo+3wo5XHr8J03VxCnFaQc28dPZXESVTBTDudU5AI8J+UMPEjiu2rFd2QMiaU3TCspKQxHNZlNSL0xrUhHr+jBVP1+BXU3V0YGCYuJulwM7ztk9IpkxFWQs6nwhJMXJJEvc7r2gFV5C3kIkBWO/e00pCGt3zAx+LNLRN0e2Bf0SNpRBGPJbw3WLUImXhrmQnJwfuj7DtM497qjits8jqobxakEeyXP9a4nBP0ngkyCIraUBaeHs6Q/uNFz+j2GvJESU15u583bd251sMJdsyP9xkQa01p/9D47K/T7O2Qd0xtXEhrQc3r4X5FEf2r1q7Q0ZQBGcKYnCDpdCvhr2vefUQTwD63YIbtyVp+R/PksHcMKvLOj78zdjOoQ0gg1KJA0NqIAu87gBFs86Uq6h4UyhDG4ruN3UEGzx5QsMemoucpswtihJ/94r6lqj61v3D9GglZdm4G+lHv1fBHgc1gi8+FkQwC6S5ImetIebAozE+cUKELWjvWkQT4/f9bg40yjGCma9JkCmIjkDg4YgPxLo1O/LZk0zxFGCD7yvqEF23hFfnFi/G3+hlco7LACBasL2qonwOrXsqlskt9I2TTC+MYlBsoz8Ek7VGgNyLkMLaZ52m7BqwC/KSupb28Evp5O/u3lWD/jH2WsAZZdgwFP4sMbtXOXfn57xhnJJRWwWA76fo/7VaxmCEjIqhTKlYitpjigiOc4FZ5i/C6P/5+/o=" />
+        </div>
+
+        <script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['ctl01'];
+if (!theForm) {
+    theForm = document.ctl01;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+        </script>
+
+
+        <script src="/CFM_CFMIS/WebResource.axd?d=BN__bF50hZol1hvvwlSUTZ7GtYCd4PyB-9Ws0mwrLbeJ7mY4WiYO9-SqcXsef7lDSCRG8XU3ZtAce1In7OL-aMinOrz2rHQ3I9uRFg6wG2w1&amp;t=637453888939909757" type="text/javascript"></script>
+
+
+        <script src="/CFM_CFMIS/ScriptResource.axd?d=xUQRfUX8O_LCFMIdB8qcrdd6CiOsCR0vPp7VYhSlCGbRCAa1QUbr4Vpgdf4-JfzhhSMS1WBiQaPx1ZeO284e_qZfaWywnwaSGL8ZhxA0WftX1kDhrc3DZxWH4qlpdl6TLK6zI-bvHpOWEr6tYwoLNw2&amp;t=fffffffff6474071" type="text/javascript"></script>
+        <script src="/CFM_CFMIS/ScriptResource.axd?d=ETWMd4DsZ6xrmEyupmgCc2VmoAKa7MUg6U_X7MCuSp2d_sBeG9A9HLVxLd9y4UxfU2k8HdJr0x4bWMknt91Rvdbiw91Va4IIuka3aIFBa44vC3V5qJcFid2ArMA3fz5sGGalEKc2USaCeI1D_rZnSA2&amp;t=f2cd5c5" type="text/javascript"></script>
+        <script type="text/javascript">
+//<![CDATA[
+//if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+        </script>
+
+        <div class="aspNetHidden">
+
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="55485241" />
+            <input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0" />
+            <input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0" />
+            <input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+            <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="Dpny2BYL3c177hqilBKrNRgk0mFLakRNGQyDvYPOEoqDCOABYHu0QRVAN/t3hNEzpBjCMLoei6FLuIg4ZiH6kYTzliNJOyu64z9y7+L2GTwyyP2CpDyOn1vLbuxpLbFTqezB+jMoxz6ooQcwRS8BzPfXA4rKypKPQoGc5Y0yPT8kmKKxyIjan1l0++aTs9QOD0bcvwKtYbnmkgv/TYpVJTto1dfu0+FXdlGVuck1fRTZcTk/PnGf6uogQ3qUNC+KWHl6kiCVDd6BYvnCCbtsvZVuTRDict/igNjBh3HgeIFGVkM78NJv8uZ1fgSI6OGfNyyPyZoKSX1p4s/vAnvws1qVAIMCUFyb5IhYSgtRzHEzzB7JjAUYioNdt9+q/BqcSpT158nUFUe+I/ivQTrAZspSWH8sfxDKddAwuAOtVL/EXh8JPVBxh/oF2fpYzd3o7cIFZFDbjy4LXqWqEcGZKe1o6Kte3WNr8OkDWTEAwfMVBqCjlYSzAYUDoFcPLB8ARD5pCaI80Wb546A7o7ezGKc///TPDY874NV3gjLKRsDWCnv4qA5TVjcKVO444o1EhQpEUenMk1+BIbwBdxyStPTXTQFyFVHrjjddJedw9ya8Z5/Z8CPMEQk1cMQ6werRUYFd3joQkcKyoL3X1hD+aCj7I02LK2+VJvhh8Z8LsavIgUHA9yQFSSPiHCoPKZ+bHHPe9MTznhuGNJnnSWjpBTNWfOW7bbfzbyNDPKC7qwEeXnqAlKP/6V5De5N/LaPy+2ryWIiXwYmK2iNBReJaC4wqwCinI9uTwbqJ20DT2EOTwMDHkRoM72QHNRNwFFxJGlhlukKLEAPr3AsrjXLlBrhY7IpL1o3KRzgYy0nreLw=" />
+        </div>
+
+
+
+        <div class="subMenu" style="overflow:auto;">
+            <table width="100%">
+                <tr>
+                    <td class="auto-style1"></td>
+                    <td>
+                        <span id="lblHdg" style="font-size:16pt;font-weight:bold;">Construction & Facilities Management Information System</span>
+                    </td>
+                    <td>
+                        <input type="image" name="ctl00$ibUser" id="ibUser" title="User Info" class="ImgButton" src="Images/user.png" />
+                    </td>
+                </tr>
+            </table>
+
+
+        </div>
+
+        <div>
+
+
+            <table width="98%">
+                <tr>
+                    <td style="vertical-align:top; width:200px">
+
+                        <link href="App_Themes/Theme1/main.css" rel="stylesheet" />
+                        <a href="#MainContent_UCMenuAdmin_mFactsheet_SkipLink"><img alt="Skip Navigation Links" src="/CFM_CFMIS/WebResource.axd?d=GOyrhJVsbY0D6Mf1k6ofaLWwVRpp7MzrhWzTbhw98F88VZc_iIZeTxCr3fEn0_d4tqtW09RzyWzfl2ysKzf4YxOM2ur6ZH1xcI1x5M_N2-41&amp;t=637453888939909757" width="0" height="0" style="border-width:0px;" /></a><div class="mainMenu" id="MainContent_UCMenuAdmin_mFactsheet">
+                                                                                                                                                                                                                                                                                                                                                  <ul class="level1">
+                                                                                                                                                                                                                                                                                                                                                      <li><a class="level1" href="/CFM_CFMIS/Default.aspx">Home</a></li>
+                                                                                                                                                                                                                                                                                                                                                      <li><a title="Only for administrator" class="level2">Administration</a></li>
+                                                                                                                                                                                                                                                                                                                                                      <li><a title="Add or update user information" class="level3" href="/CFM_CFMIS/Admin/UserInfo.aspx">User Information</a></li>
+                                                                                                                                                                                                                                                                                                                                                      <li><a title="Search and update station information" class="level3" href="/CFM_CFMIS/Admin/StationInfo.aspx">Search Station</a></li>
+                                                                                                                                                                                                                                                                                                                                                      <li><a title="Add station information" class="level3" href="/CFM_CFMIS/Admin/StationAdd.aspx">Add Station</a></li>
+                                                                                                                                                                                                                                                                                                                                                      <li><a title="Maintain Lookup Lists" class="level3" href="/CFM_CFMIS/Admin/MaintainLookup.aspx">Maintain Lookup Lists</a></li>
+                                                                                                                                                                                                                                                                                                                                                      <li><a title="Add New Projects" class="level2" href="/CFM_CFMIS/AddProject.aspx">Add Project</a></li>
+                                                                                                                                                                                                                                                                                                                                                      <li><a title="Search for project or factsheet" class="level2">Search</a></li>
+                                                                                                                                                                                                                                                                                                                                                      <li><a title="Search for Projects" class="level3" href="/CFM_CFMIS/SearchProject.aspx">Project Information</a></li>
+                                                                                                                                                                                                                                                                                                                                                      <li><a title="View factsheet reports" class="level2">Reports</a></li>
+                                                                                                                                                                                                                                                                                                                                                      <li><a title="Projects Submitted for Review" class="level3 selected" href="/CFM_CFMIS/SubmittedReviewList.aspx">Submitted Review List</a></li>
+                                                                                                                                                                                                                                                                                                                                                      <li><a title="Projects Pending for Review" class="level3" href="/CFM_CFMIS/PendingReviews.aspx">Pending Review List</a></li>
+                                                                                                                                                                                                                                                                                                                                                      <li><a title="Search factsheet that has been published" class="level3" href="/CFM_CFMIS/ReportViewer.aspx?report=FactSheetreportPublic" target="_blank">View Archived FactSheet</a></li>
+                                                                                                                                                                                                                                                                                                                                                      <li><a title="View the report with Active project" class="level3" href="/CFM_CFMIS/ReportList.aspx?" target="_blank">View Active Reports</a></li>
+                                                                                                                                                                                                                                                                                                                                                      <li><a title="View Environmental Questionnaires" class="level2">Environmental</a></li>
+                                                                                                                                                                                                                                                                                                                                                      <li><a title="Unassigned Questionnaire List" class="level3 selected" href="UnassignedSubmittedQuestionaire.html">Unassigned Questionnaire List</a></li>
+                                                                                                                                                                                                                                                                                                                                                      <li><a title="Questionnaire for Initial Response List" class="level3 selected" href="SubmittedQuestionnaireForResponseList.html">Questionnaire for Initial Response List</a></li>
+                                                                                                                                                                                                                                                                                                                                                      <li><a title="Environmental Staff SME's Report" class="level3 selected" href="SubmittedQuestionnaireList.html">Environmental Staff SME's Report</a></li>
+                                                                                                                                                                                                                                                                                                                                                      <li><a title="View User Manual" class="level2" href="javascript:GoTo(&#39;http://cfm.vaco.va.gov/UserManual/QuickReferenceGuideForNewCFMIS.pdf&#39;)">User Manual</a></li>
+                                                                                                                                                                                                                                                                                                                                                  </ul>
+                        </div><a id="MainContent_UCMenuAdmin_mFactsheet_SkipLink"></a>
+
+                        <script lang="javascript" type="text/javascript">
+
+    function GoTo(url) {
+        window.open(url);
+        //// Cancel the event bubbling. *This code is browser dependent.*
+    }
+
+                        </script>
+
+                    </td>
+                    <td valign="top">
+                        <div style="padding-left:5px;">
+
+                            <br />
+                            <div id="MainContent_pnlCentralReview">
+
+                                <span id="MainContent_lblReviewForDirectorCentral" style="font-size:12px;font-weight:bold;">List of questionnaires submitted for Initial Response:</span>
+                                <br />
+                                <div>
+                                    <table cellspacing="0" id="MainContent_gvSubmittedReviewForCentralDirector" style="color:#333333;width:90%;border-collapse:collapse;">
+                                        <tr style="color:White;background-color:#5D7B9D;font-weight:bold;">
+                                            <th align="left" scope="col"><a href="javascript:__doPostBack(&#39;ctl00$MainContent$gvSubmittedReviewForCentralDirector&#39;,&#39;Sort$projectCode&#39;)" style="color:White;">Project #</a></th>
+                                            <th align="left" scope="col"><a href="javascript:__doPostBack(&#39;ctl00$MainContent$gvSubmittedReviewForCentralDirector&#39;,&#39;Sort$city&#39;)" style="color:White;">City</a></th>
+                                            <th align="left" scope="col"><a href="javascript:__doPostBack(&#39;ctl00$MainContent$gvSubmittedReviewForCentralDirector&#39;,&#39;Sort$state&#39;)" style="color:White;">State</a></th>
+                                            <th align="left" scope="col"><a href="javascript:__doPostBack(&#39;ctl00$MainContent$gvSubmittedReviewForCentralDirector&#39;,&#39;Sort$mainProjectTitle&#39;)" style="color:White;">Project Title</a></th>
+                                            <th align="left" scope="col"><a href="javascript:__doPostBack(&#39;ctl00$MainContent$gvSubmittedReviewForCentralDirector&#39;,&#39;Sort$full_name&#39;)" style="color:White;">Project Manager</a></th>
+                                            <th align="center" scope="col"><a href="javascript:__doPostBack(&#39;ctl00$MainContent$gvSubmittedReviewForCentralDirector&#39;,&#39;Sort$VISN&#39;)" style="color:White;">VISN</a></th>
+                                            <th align="center" scope="col"><a href="javascript:__doPostBack(&#39;ctl00$MainContent$gvSubmittedReviewForCentralDirector&#39;,&#39;Sort$submitDate&#39;)" style="color:White;">Submitted</a></th>
+                                        </tr>
+                                        <tr style="color:#333333;background-color:#F7F6F3;">
+                                            <td style="color:Blue;font-weight:normal;text-decoration:underline;"><a href="EnviInitialResponseForm.aspx">555-111</a></td>
+                                            <td>Fort Harrison</td>
+                                            <td>Montana</td>
+                                            <td>Seismic Upgrade and Specialty Care Improvements</td>
+                                            <td>Chanda Joshi</td>
+                                            <td align="center">19</td>
+                                            <td align="center">9/16/2020</td>
+                                        </tr>
+                                        <tr style="color:#284775;background-color:White;">
+                                            <td style="color:Blue;font-weight:normal;text-decoration:underline;"><a href="EnviInitialResponseForm.aspx">666-222</a></td>
+                                            <td>Biloxi</td>
+                                            <td>Mississippi</td>
+                                            <td>Restoration Of Hospital/Consolidation of Gulfport</td>
+                                            <td>Karen Zelenka</td>
+                                            <td align="center">16</td>
+                                            <td align="center">6/30/2021</td>
+                                        </tr>
+                                        <tr style="color:#333333;background-color:#F7F6F3;">
+                                            <td style="color:Blue;font-weight:normal;text-decoration:underline;"><a href="EnviInitialResponseForm.aspx">777-333</a></td>
+                                            <td>Louisville</td>
+                                            <td>Kentucky</td>
+                                            <td>New Medical Facility</td>
+                                            <td>Adrian Payton</td>
+                                            <td align="center">9</td>
+                                            <td align="center">9/11/2020</td>
+                                        </tr>
+                                        <tr style="color:#284775;background-color:White;">
+                                            <td style="color:Blue;font-weight:normal;text-decoration:underline;"><a href="EnviInitialResponseForm.aspx">888-444</a></td>
+                                            <td>Roseburg</td>
+                                            <td>Oregon</td>
+                                            <td>Seismically Upgrade and Renovate Building 2 and Replace Building 1</td>
+                                            <td>Chanda Joshi</td>
+                                            <td align="center">20</td>
+                                            <td align="center">5/1/2020</td>
+                                        </tr>
+                                        <tr style="color:#333333;background-color:#F7F6F3;">
+                                            <td style="color:Blue;font-weight:normal;text-decoration:underline;"><a href="EnviInitialResponseForm.aspx">999-555</a></td>
+                                            <td>St. Louis (JC)</td>
+                                            <td>Missouri</td>
+                                            <td>Replace Bed Tower, Clinical Bldg Expansion &amp; Parking Garage</td>
+                                            <td>Chanda Joshi</td>
+                                            <td align="center">15</td>
+                                            <td align="center">5/1/2020</td>
+                                        </tr>
+                                        <tr style="color:#284775;background-color:White;">
+                                            <td style="color:Blue;font-weight:normal;text-decoration:underline;"><a href="EnviInitialResponseForm.aspx">222-555</a></td>
+                                            <td>Walla Walla</td>
+                                            <td>Washington</td>
+                                            <td>Seismically Mitigate and Renovate Building 1</td>
+                                            <td>Cullen Mumley; David Bennett</td>
+                                            <td align="center">20</td>
+                                            <td align="center">4/28/2020</td>
+                                        </tr>
+                                        <tr style="color:#333333;background-color:#F7F6F3;">
+                                            <td style="color:Blue;font-weight:normal;text-decoration:underline;"><a href="EnviInitialResponseForm.aspx">444-777</a></td>
+                                            <td>Walla Walla</td>
+                                            <td>Washington</td>
+                                            <td>Seismically Mitigate and Renovation of Building 75</td>
+                                            <td>Craig Marriner</td>
+                                            <td align="center">20</td>
+                                            <td align="center">4/28/2020</td>
+                                        </tr>
+                                        <tr style="color:#284775;background-color:White;">
+                                            <td style="color:Blue;font-weight:normal;text-decoration:underline;"><a href="EnviInitialResponseForm.aspx">555-888</a></td>
+                                            <td>Walla Walla</td>
+                                            <td>Washington</td>
+                                            <td>Seismically Mitigate Building 77</td>
+                                            <td>Craig Marriner</td>
+                                            <td align="center">20</td>
+                                            <td align="center">4/28/2020</td>
+                                        </tr>
+                                        <tr style="color:#333333;background-color:#F7F6F3;">
+                                            <td style="color:Blue;font-weight:normal;text-decoration:underline;"><a href="EnviInitialResponseForm.aspx">111-888</a></td>
+                                            <td>Walla Walla</td>
+                                            <td>Washington</td>
+                                            <td>Seismically Mitigate and Renovate Building 78</td>
+                                            <td>Craig Marriner</td>
+                                            <td align="center">20</td>
+                                            <td align="center">4/28/2020</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+
+
+                            <br />
+
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <hr />
+
+        </div>
+
+        <script type="text/javascript">
+        </script>
+    </form>
+</body>
+</html>

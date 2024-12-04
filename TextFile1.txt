@@ -1,0 +1,211 @@
+<cc1:TabPanel ID="tpFunding" runat="server">
+    <HeaderTemplate>PointofContactFunding</HeaderTemplate>
+    <ContentTemplate><asp:UpdatePanel ID="tab4" runat="server">
+        <ContentTemplate>
+            <div style="background-color:#e6eeff;padding-top:3px;padding-left:10px;">
+                <div id="divPOC" class="wideBox" style="clear:both;padding-left:10px;" runat="server">
+                    <table>
+					   <tr>
+					       <td><h4>Point of Contact</h4></td>
+                           <td>
+                             <asp:Button ID="btnAddPOC" runat="server" Text="Add Point of Contact" Font-Bold="True" CausesValidation="False" />                           
+                           </td>
+                           <td>
+                             <asp:Label ID="lblAddMsg" runat="server" Font-Bold="True" ForeColor="#009900"></asp:Label>
+                           </td>
+					    </tr>
+					</table>
+                    <asp:GridView ID="gvPOC" runat="server" AutoGenerateColumns="False" DataKeyNames="projectPOCID" Width="98%" OnDataBound="gvPOC_DataBound" 
+                        DataSourceID="odsrcPOCFromFSDS"  ForeColor="#333333" EmptyDataText="Point of Contact information not available" AllowPaging="True" Font-Size="12px">
+                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                        <Columns>                            
+							<asp:BoundField DataField="firstName" HeaderText="First Name" SortExpression="FirstName" >
+                                <ItemStyle CssClass="gvPadding" Width="90px" /></asp:BoundField>
+							<asp:BoundField DataField="lastName" HeaderText="Last Name" SortExpression="LastName" >
+                                <ItemStyle CssClass="gvPadding" Width="90px" /></asp:BoundField>
+                            <asp:BoundField DataField="title" HeaderText="Title" SortExpression="Title" >
+                                <ItemStyle CssClass="gvPadding" Width="80px" /></asp:BoundField>
+							<asp:BoundField DataField="phoneNumber" HeaderText="Phone Number" SortExpression="PhoneNumber" >
+                                <ItemStyle CssClass="gvPadding" Width="90px" /></asp:BoundField>
+                            
+                            <asp:BoundField DataField="lkManagerRoles_pk" HeaderText="lkManagerRoles_pk" SortExpression="lkManagerRoles_pk" Visible="False" />
+                            <asp:BoundField DataField="project_FK" HeaderText="project_FK" SortExpression="project_FK" Visible="False" />
+                            <asp:TemplateField>
+                                <ItemTemplate><asp:Button ID="btnEditPOC" runat="server" Text="Edit" CommandName="Select" Font-Bold="False" OnClick="btnEditPOC_Click" Font-Size="12px" /></ItemTemplate>
+                                <ItemStyle CssClass="gvPadding" Width="30px" Font-Size="12px" />
+                            </asp:TemplateField>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:Button ID="btnDeletePOC" runat="server" Text="Delete" CommandName="Delete" Font-Bold="False" CausesValidation="False" OnClientClick="return confirm('Are you sure to delete this POC?');" Font-Size="12px" /></ItemTemplate>
+                                <ItemStyle CssClass="gvPadding" Width="30px" Font-Size="12px" />
+                            </asp:TemplateField>
+                        </Columns>
+                    <PagerTemplate>
+                    <asp:LinkButton ID="lbFirst" runat="server" CommandArgument="First" Enabled= '<%#IIf((gvPOC.PageIndex)<1,"false","true")%>'
+                        CommandName="Page" ForeColor="White">&lt;&lt; First</asp:LinkButton>
+                    <asp:LinkButton ID="lbPrev" runat="server" CommandArgument="Prev" Enabled= '<%#IIf((gvPOC.PageIndex)<1,"false","true")%>'
+                        CommandName="Page" ForeColor="White">&lt; Prev</asp:LinkButton> 
+                    [Total Pg No: <%=gvPOC.PageCount%>][Current pg: <%=gvPOC.PageIndex + 1%>]
+                    <asp:LinkButton ID="lbNext" runat="server" CommandArgument="Next" Enabled= '<%#IIf((gvPOC.PageCount)=(gvPOC.PageIndex + 1),"false","true")%>'
+                        CommandName="Page" ForeColor="White">Next &gt;</asp:LinkButton>
+                    <asp:LinkButton ID="lbLast" runat="server" CommandArgument="Last" Enabled= '<%#IIf((gvPOC.PageCount)=(gvPOC.PageIndex + 1),"false","true")%>'
+                        CommandName="Page" ForeColor="White">Last &gt;&gt;</asp:LinkButton><br />
+                         <asp:Label ID="lblGoTo" runat="server" Text="Go to Pg:"></asp:Label>    
+                    <asp:DropDownList ID="ddlPOCPaging" runat="server" AutoPostBack="True" 
+                        Height="21px" OnSelectedIndexChanged="ddlPOCPaging_SelectedIndexChanged" 
+                        Width="45px">
+                    </asp:DropDownList>
+                    <asp:Label ID="lblCurrentPg" runat="server"></asp:Label>    
+                </PagerTemplate>
+                        <PagerStyle HorizontalAlign="Center"  BackColor="#284775" ForeColor="White" />
+                        <EditRowStyle BackColor="#999999" /><FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" /><RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                        <SortedAscendingHeaderStyle BackColor="#506C8C" /><SortedDescendingCellStyle BackColor="#FFFDF8" />
+                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                    </asp:GridView>
+
+                    <asp:ObjectDataSource ID="odsrcPOC" runat="server" OldValuesParameterFormatString="original_{0}" 
+                        SelectMethod="GetPOCByProjectId" DeleteMethod="DeletePOC" TypeName="FactSheetApp.FactSheetNewTableAdapters.projectPOCTableAdapter">
+                        <SelectParameters>
+                            <asp:QueryStringParameter Name="ProjectId" QueryStringField="project_pk" Type="Int32" /></SelectParameters>
+                    </asp:ObjectDataSource>
+                    <asp:ObjectDataSource ID="odsrcPOCFromFSDS" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetPOCByProjectId" TypeName="CFMISNew.FactSheetDataSetTableAdapters.projectPOCTableAdapter" UpdateMethod="Update">
+                        <DeleteParameters>
+                            <asp:Parameter Name="Original_projectPOCId" Type="Int32" />
+                        </DeleteParameters>
+                       <InsertParameters>
+                            <asp:Parameter Name="firstName" Type="String" />
+                            <asp:Parameter Name="lastName" Type="String" />
+                            <asp:Parameter Name="managerRoles_FK" Type="Int32" />
+                            <asp:Parameter Name="phoneNumber" Type="String" />
+                        </InsertParameters>
+                        <UpdateParameters>
+                            <asp:Parameter Name="firstName" Type="String" />
+                            <asp:Parameter Name="lastName" Type="String" />
+                            <asp:Parameter Name="managerRoles_FK" Type="Int32" />
+                            <asp:Parameter Name="phoneNumber" Type="String" />
+                            <asp:Parameter Name="Original_projectPOCId" Type="Int32" />
+                        </UpdateParameters>
+                        <SelectParameters>
+                            <asp:QueryStringParameter Name="ProjectId" QueryStringField="project_pk" Type="Int32" />
+                        </SelectParameters>
+                        </UpdateParameters>
+                    </asp:ObjectDataSource>
+                    <asp:Panel ID="pnlAddPOC" runat="server"  CssClass="modalPopup" Width="550px" BackColor="#E6EDF4" style="display:none">
+                        <asp:UpdatePanel ID="mupAddPOC" runat="server">
+                            <ContentTemplate>
+                                <asp:FormView ID="fvAddPOC" runat="server" DataKeyNames="projectPOCID" DataSourceID="odsrcPOC" DefaultMode="Insert" Width="528px">
+                                    <EditItemTemplate></EditItemTemplate>
+                                    <InsertItemTemplate><br />
+                                        <asp:Label ID="lblAddPOCHdng" runat="server" Text="Enter Point of Contact Information: " Font-Bold="True"></asp:Label><br /><br />
+                                        <table style="width: 99%">      
+                                            <tr><td class="auto-style78">First Name: </td>
+                                                <td class="auto-style77" colspan="2">
+                                                    <asp:TextBox ID="txtfirstName" runat="server" Text='<%# Bind("firstName") %>' Width="98%" />
+												</td>
+											</tr>
+                                            <tr><td class="auto-style78">Last Name: </td>
+                                                <td class="auto-style77" colspan="2">
+                                                    <asp:TextBox ID="txtlasttName" runat="server" Text='<%# Bind("lastName") %>' Width="98%" />
+												</td>
+											</tr>
+                                            <tr><td class="auto-style78">Title: </td>
+                                                <td class="auto-style77">
+                                                    <asp:DropDownList ID="ddlManagerRole" runat="server" DataSourceID="sdsrcManagerRole" DataTextField="name" DataValueField="managerRoles_FK" 
+                                    Height="21px" Width="170px" SelectedValue='<%# Bind("managerRoles_FK") %>' AppendDataBoundItems="True">
+                                                        <asp:ListItem Value="" Text="-Select-"></asp:ListItem></asp:DropDownList></td>
+                                                <td>&nbsp;</td></tr>
+                                            <tr><td class="auto-style78">Phone Number: </td>
+                                                <td class="auto-style77" colspan="2">
+                                                    <asp:TextBox ID="txtphoneNumber" runat="server" Text='<%# Bind("phoneNumber") %>' Width="98%" />
+												</td>
+											</tr>
+</table>
+                                        <asp:Label ID="lblmanagerRoles_FK" runat="server" Text='<%# Bind("managerRoles_FK") %>'></asp:Label>
+                                        <asp:Label ID="lblProjId" runat="server" Text='<%# Bind("project_FK") %>'></asp:Label>
+                                        <asp:SqlDataSource ID="sdsrcManagerRole" runat="server" ConnectionString="<%$ ConnectionStrings:MainConn %>" 
+                                            SelectCommand="SELECT * FROM [lkManagerRoles] order by Name"></asp:SqlDataSource></InsertItemTemplate>
+                                    <ItemTemplate></ItemTemplate>
+
+                                </asp:FormView>
+
+                            </ContentTemplate></asp:UpdatePanel>
+                        <table align="center" style="width: 112px"><tr><td align="center">
+                            <asp:LinkButton ID="lbAddPOC" runat="server"  Text="Save" CommandName="Insert" Font-Bold="True" ValidationGroup="POC"/></td>
+                            <td align="center">
+                                <asp:LinkButton ID="lbCancelAddPOC" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" Font-Bold="True"/></td></tr>
+
+                        </table>
+
+                    </asp:Panel>
+                    <asp:Button id="btnInertPOC" runat="server" style="display:none;"/>
+                    <cc1:ModalPopupExtender ID="mpeAddPOC" runat="server" DropShadow ="True" X="300" Y="250"
+	cancelcontrolid="lbCancelAddPOC" BackgroundCssClass="ModalPopupBG" PopupDragHandleControlID="mupAddPOC"
+	targetcontrolid="btnInertPOC" popupcontrolid="pnlAddPOC"  Enabled="True" ></cc1:ModalPopupExtender>
+                    <asp:Panel ID="pnlEditPOC" runat="server"  CssClass="modalPopup" Width="550px" BackColor="#E6EDF4" style="display:none">
+                        <asp:UpdatePanel ID="mupEditPOC" runat="server">
+                            <ContentTemplate>
+                                <asp:FormView ID="fvEditPOC" runat="server" DataKeyNames="projectPOCID" DataSourceID="odsrcEditPOC" 
+                                    DefaultMode="Edit" Width="528px">
+                                    <EditItemTemplate><br />
+                                        <asp:Label ID="lblUpdtHdgMsg" runat="server" Text="Update Point of Contact Information: " Font-Bold="True"></asp:Label><br />
+                                        <br />
+                                        <table style="width: 99%">
+                                            <tr><td class="auto-style78">First Name: </td>
+                                                <td class="auto-style77" colspan="2">
+                                                    <asp:TextBox ID="txtfirstNameEdit" runat="server" Text='<%# Bind("firstName") %>' Height="20px" Width="98%" />
+											    </td>
+											</tr>
+                                            <tr><td class="auto-style78">Last Name: </td>
+                                                <td class="auto-style77" colspan="2">
+                                                    <asp:TextBox ID="txtlastNameEdit" runat="server" Text='<%# Bind("lastName") %>' Height="20px" Width="98%" />
+												</td>
+                                            </tr>
+
+                                            <tr><td class="auto-style78">Approval Type: </td>
+                                                <td class="auto-style77">
+                                                    <asp:DropDownList ID="ddlPersonnelRoleEdit" runat="server" DataSourceID="sdsrcManagerRole" DataTextField="name" DataValueField="managerRoles_FK" 
+														Height="21px" Width="90%" SelectedValue='<%# Bind("managerRoles_FK") %>' AppendDataBoundItems="True">
+                                                        <asp:ListItem Value="" Text="-Select-">
+                                                        </asp:ListItem>
+                                                    </asp:DropDownList>
+												</td>
+                                                <td>&nbsp;</td>
+											</tr>
+                                            <tr><td class="auto-style78">Phone Number: </td>
+                                                <td class="auto-style77" colspan="2">
+                                                    <asp:TextBox ID="txtphoneNumberEdit" runat="server" Text='<%# Bind("phoneNumber") %>' Height="20px" Width="98%" />
+												</td>
+                                            </tr>
+									</table>
+                                    <asp:Label ID="lblPOCId" runat="server" Text='<%# Bind("projectPOCID") %>' Visible="False"></asp:Label>
+                                    <asp:SqlDataSource ID="sdsrcManagerRoleEdit" runat="server" ConnectionString="<%$ ConnectionStrings:MainConn %>" 
+                                    SelectCommand="SELECT * FROM [lkManagerRoles] order by Name"></asp:SqlDataSource></EditItemTemplate>
+                                    <InsertItemTemplate></InsertItemTemplate>
+                                    <ItemTemplate></ItemTemplate></asp:FormView>
+                                <asp:ObjectDataSource ID="odsrcEditPOC" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetPOCByprojectPOCID" 
+                                    TypeName="FactSheetApp.FactSheetNewTableAdapters.projectPOCTableAdapter">
+                                    <SelectParameters>
+                                        <asp:ControlParameter ControlID="gvPOC" Name="projectPOCID" PropertyName="SelectedValue" Type="Int32" /></SelectParameters>
+</asp:ObjectDataSource>
+
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                        <table align="center" style="width: 124px"><tr><td align="center">
+                            <asp:LinkButton ID="lbEditPOC" runat="server"  Text="Save" CommandName="Update" Font-Bold="True" ValidationGroup="POCEdt" Font-Size="12px" /></td>
+                            <td align="center">
+                                <asp:LinkButton ID="lbCnclEditPOC" runat="server" CausesValidation="False" Text="Cancel" Font-Bold="True" Font-Size="12px"/></td></tr></table>
+
+                    </asp:Panel>
+                    <asp:Button id="btnUpdtPOC" runat="server" style="display:none;"/>
+                    <cc1:ModalPopupExtender ID="mpeEditPOC" runat="server" DropShadow ="True" X="300" Y="250" 
+                CancelControlID="lbCnclEditPOC" BackgroundCssClass="ModalPopupBG" PopupDragHandleControlID="mupEditPOC" 
+                targetcontrolid="btnUpdtPOC" popupcontrolid="pnlEditPOC"  Enabled="True" DynamicServicePath=""></cc1:ModalPopupExtender><br />
+
+                </div>
+            </div>
+        </ContentTemplate>
+                     </asp:UpdatePanel>
+    </ContentTemplate></cc1:TabPanel>

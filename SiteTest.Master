@@ -1,0 +1,123 @@
+﻿<%@ Master Language="VB" AutoEventWireup="true" CodeBehind="SiteTest.master.vb" Inherits="CFMISNew.SiteTestMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head runat="server">
+    <title></title>
+     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7" />
+    <%--<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />--%>
+    <link href="App_Themes/Theme1/main.css" rel="stylesheet" />
+    
+<%--    <script type="text/javascript" src="Content/js/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="Content/js/select2.js"></script>
+    <link href="Content/css/select2.css" rel="stylesheet" />--%>
+
+    <script type="text/javascript" src="Content/js/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="Content/js/select2.js"></script>
+    <link href="Content/css/select2.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="Content/js/sweetalert.min.js"></script>
+    <link  rel="stylesheet" href="Content/css/sweetalert.css" />
+
+    <script type="text/javascript">
+       function SaveAlertMsg(msg) {
+         swal("", msg, "success");
+       }
+       function ErrorAlertMsg(msg) {
+         swal("", msg, "error");
+       }
+       function ConfirmAlertMsg() {
+            swal("Are you sure you want assign the survey to an engineer?", {
+                buttons: ["No", "Yes"], 
+            });
+        }
+
+       function SaveAlertAndCloseWindowMsg(msg) {
+           swal("", msg, "success");
+           setTimeout(function () { window.open("http://cfm.vaco.va.gov/CFM_CFMIS/UnassignedSubmittedQuestionnaireList.aspx", "_self"); } , 5000);
+        }
+         function SaveAlertAndCloseWindowMsg1(msg) {
+             swal("", msg, "success");
+              setTimeout(function () { window.location.reload("", "_self"); } , 2000);
+        }
+         function SaveAlertAndCloseWindowMsg2(msg) {
+             swal("", msg, "success");
+              setTimeout(function () {  window.open("Default.aspx", "_self"); } , 5000);
+       }
+
+    </script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script type = "text/javascript">
+
+        function SetTarget() {
+            document.forms[0].target = "_blank";
+        }
+</script>
+    <%--<style type="text/css">
+        .data {
+            width: 169px;
+        }
+        .modalPopup {}
+        .auto-style1 {
+            width: 85px;
+        }
+    </style>--%>
+    
+    <style type="text/css">
+        .auto-style1 {
+            width: 107px;
+        }
+    </style>
+    
+</head>
+<body>
+    <form id="form1" runat="server">
+     <%-- <asp:ScriptManager ID="smFactsheet" runat="server">
+        </asp:ScriptManager>--%>
+
+          <asp:ContentPlaceHolder ID="cphMainMenu" runat="server">
+        <table class="mainHeader">
+            <tr>
+                <td style="text-align:right; vertical-align:top; padding:5px;">
+                   <asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="btn" />
+                    <p><asp:Label ID="lblUser" runat="server"></asp:Label>
+                        <asp:Label ID="lblRole" runat="server" ></asp:Label>
+                    </p>
+                </td>
+            </tr>
+        </table></asp:ContentPlaceHolder>
+        <div class="subMenu" style="overflow:auto;">
+            <table width="100%"><tr><td class="auto-style1">
+                <asp:ContentPlaceHolder ID="cphQuickMenu" runat="server">
+          <table><tr><td align="right" style="padding-left: 25px">
+              <asp:ImageButton ID="ibHome" runat="server" ImageUrl="~/Images/Home.png" CssClass="ImgButton" CausesValidation="false" ToolTip="Home" />
+                 </td><td align="right" style="padding-left: 5px">
+              <asp:ImageButton ID="ibSearch" runat="server" ImageUrl="~/Images/Search.png" CssClass="ImgButton" CausesValidation="false" ToolTip="Search" />
+                 </td></tr></table></asp:ContentPlaceHolder>
+                       </td><td>
+                           <asp:Label ID="lblHdg" runat="server" Text="Construction & Facilities Management Information System" Font-Size="16pt" Font-Bold="True"></asp:Label>
+                       </td><td>
+                    <asp:ImageButton ID="ibUser" runat="server" ImageUrl="~/Images/user.png" CssClass="ImgButton" CausesValidation="false" ToolTip="User Info" />
+                       </td></tr></table>
+                
+
+     </div> 
+
+        <div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <%--<footer>
+                <p>&copy; <%: DateTime.Now.Year %></p>
+            </footer>--%>
+        </div>
+
+    </form>
+</body>
+</html>

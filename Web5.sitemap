@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+	<!--This site map has admin menu-->
+
+	<siteMapNode url="~/Default.aspx" title="Home"  description="">
+		<siteMapNode title="Search" roles="*" description="Search for project or factsheet">
+			<siteMapNode url="~/SearchProject.aspx" title="Project Information"  description="Search for Projects" />
+			<!--<siteMapNode url="~/SearchFactsheetReviews.aspx" title="FactSheet"  description="Search Projects for reviewing Factsheet" />-->
+		</siteMapNode>
+		<!--<siteMapNode url="~/MapProject.aspx" title="Map"  description="Map" />-->
+		<siteMapNode title="Reports" roles="*" description="View factsheet reports">
+			<siteMapNode url="~/SubmittedReviewList.aspx" title="Submitted Review List"  description="Projects Submitted for Review" />
+			<siteMapNode url="~/PendingReviews.aspx" title="Pending Review List"  description="Projects Pending for Review" />
+			<siteMapNode url="~/ReportViewer.aspx?report=FactSheetreportPublic" title="View Archived FactSheet"  description="Search factsheet that has been published" />
+			<siteMapNode url="~/ReportList.aspx?" title="View Active Reports"  description="View the report with Active project" />
+			<siteMapNode url="~/ReportViewer.aspx?report=LastProjectUpdateReport" title="View Last Project Update Report" description="View the report with Last Project Update" />
+		</siteMapNode>
+		<siteMapNode title="Sustainability" roles="*" description="Sustainability">
+			<siteMapNode url="~/SustainabilityReport.aspx?" title="View Sustainability Report"  description="Sustainability Report" />
+		</siteMapNode>
+
+		<siteMapNode title="User Manual" url="javascript:GoTo('http://cfm.vaco.va.gov/UserManual/QuickReferenceGuideForNewCFMIS.pdf')"  roles="*" description="View User Manual">
+
+		</siteMapNode>
+	</siteMapNode>
+</siteMap>

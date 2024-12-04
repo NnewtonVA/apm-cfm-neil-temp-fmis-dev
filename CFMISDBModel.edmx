@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CFM_CFMISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="project_pk" />
+          </Key>
+          <Property Name="project_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deleted" Type="bit" />
+          <Property Name="fms_number" Type="varchar" MaxLength="25" />
+          <Property Name="projectCode" Type="varchar" MaxLength="50" />
+          <Property Name="projectDesc" Type="varchar" MaxLength="255" />
+          <Property Name="cancelDate" Type="datetime" />
+          <Property Name="mouDate" Type="datetime" />
+          <Property Name="programYear" Type="int" />
+          <Property Name="subProjectFlag" Type="bit" />
+          <Property Name="legacyProjectCode" Type="varchar" MaxLength="50" />
+          <Property Name="creationDate" Type="datetime" />
+          <Property Name="modificationDate" Type="datetime" />
+          <Property Name="mainProject_fk" Type="int" />
+          <Property Name="station_fk" Type="int" />
+          <Property Name="status_fk" Type="int" />
+          <Property Name="projectType_fk" Type="int" />
+          <Property Name="Category_fk" Type="int" />
+          <Property Name="subCategory_fk" Type="int" />
+          <Property Name="delegation_fk" Type="int" />
+          <Property Name="delivery_method_fk" Type="int" />
+          <Property Name="modifyBy" Type="varchar" MaxLength="50" />
+          <Property Name="createdBy" Type="varchar" MaxLength="50" />
+          <Property Name="region" Type="varchar" MaxLength="30" />
+          <Property Name="ncaDistrict_fk" Type="int" />
+          <Property Name="longitude" Type="float" />
+          <Property Name="latitude" Type="float" />
+          <Property Name="constFundingYear" Type="varchar" MaxLength="255" />
+          <Property Name="designFundingYear" Type="varchar" MaxLength="255" />
+          <Property Name="riskType_FK" Type="int" />
+          <Property Name="environmentalOverviewNote" Type="varchar(max)" />
+        </EntityType>
+        <EntityContainer Name="CFM_CFMISModelStoreContainer">
+          <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CFM_CFMISModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="project_pk" />
+          </Key>
+          <Property Name="project_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deleted" Type="Boolean" />
+          <Property Name="fms_number" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="projectCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="projectDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="cancelDate" Type="DateTime" Precision="3" />
+          <Property Name="mouDate" Type="DateTime" Precision="3" />
+          <Property Name="programYear" Type="Int32" />
+          <Property Name="subProjectFlag" Type="Boolean" />
+          <Property Name="legacyProjectCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="creationDate" Type="DateTime" Precision="3" />
+          <Property Name="modificationDate" Type="DateTime" Precision="3" />
+          <Property Name="mainProject_fk" Type="Int32" />
+          <Property Name="station_fk" Type="Int32" />
+          <Property Name="status_fk" Type="Int32" />
+          <Property Name="projectType_fk" Type="Int32" />
+          <Property Name="Category_fk" Type="Int32" />
+          <Property Name="subCategory_fk" Type="Int32" />
+          <Property Name="delegation_fk" Type="Int32" />
+          <Property Name="delivery_method_fk" Type="Int32" />
+          <Property Name="modifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="region" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ncaDistrict_fk" Type="Int32" />
+          <Property Name="longitude" Type="Double" />
+          <Property Name="latitude" Type="Double" />
+          <Property Name="constFundingYear" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="designFundingYear" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="riskType_FK" Type="Int32" />
+          <Property Name="environmentalOverviewNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="CFM_CFMISEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CFM_CFMISModelStoreContainer" CdmEntityContainer="CFM_CFMISEntities">
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="CFM_CFMISModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="project_pk" ColumnName="project_pk" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+                <ScalarProperty Name="fms_number" ColumnName="fms_number" />
+                <ScalarProperty Name="projectCode" ColumnName="projectCode" />
+                <ScalarProperty Name="projectDesc" ColumnName="projectDesc" />
+                <ScalarProperty Name="cancelDate" ColumnName="cancelDate" />
+                <ScalarProperty Name="mouDate" ColumnName="mouDate" />
+                <ScalarProperty Name="programYear" ColumnName="programYear" />
+                <ScalarProperty Name="subProjectFlag" ColumnName="subProjectFlag" />
+                <ScalarProperty Name="legacyProjectCode" ColumnName="legacyProjectCode" />
+                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+                <ScalarProperty Name="modificationDate" ColumnName="modificationDate" />
+                <ScalarProperty Name="mainProject_fk" ColumnName="mainProject_fk" />
+                <ScalarProperty Name="station_fk" ColumnName="station_fk" />
+                <ScalarProperty Name="status_fk" ColumnName="status_fk" />
+                <ScalarProperty Name="projectType_fk" ColumnName="projectType_fk" />
+                <ScalarProperty Name="Category_fk" ColumnName="Category_fk" />
+                <ScalarProperty Name="subCategory_fk" ColumnName="subCategory_fk" />
+                <ScalarProperty Name="delegation_fk" ColumnName="delegation_fk" />
+                <ScalarProperty Name="delivery_method_fk" ColumnName="delivery_method_fk" />
+                <ScalarProperty Name="modifyBy" ColumnName="modifyBy" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="ncaDistrict_fk" ColumnName="ncaDistrict_fk" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="constFundingYear" ColumnName="constFundingYear" />
+                <ScalarProperty Name="designFundingYear" ColumnName="designFundingYear" />
+                <ScalarProperty Name="riskType_FK" ColumnName="riskType_FK" />
+                <ScalarProperty Name="environmentalOverviewNote" ColumnName="environmentalOverviewNote" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
